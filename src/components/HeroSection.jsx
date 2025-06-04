@@ -17,7 +17,7 @@ const HeroSection = () => {
     }
 
     return (
-        <div className='text-center bg-gradient-to-b from-[#1A1A40] to-pink text-white py-20 px-6'>
+        <div className='text-center bg-gradient-to-b from-[#1A1A40] to-[#12125e] text-white py-20 px-6'>
             <motion.div 
                 initial={{ opacity: 0, y: -50 }} 
                 animate={{ opacity: 1, y: 0 }} 

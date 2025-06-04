@@ -38,7 +38,7 @@ const Navbar = () => {
             <div className='flex items-center justify-between max-w-7xl mx-auto'>
                 {/* Logo */}
                 <Link to="/" className="text-3xl font-extrabold tracking-wide">
-                    Job<span className="text-[#FFD700]">ferdt</span>
+                    Job<span className="text-[#FFD700]">Nest</span>
                 </Link>
 
                 {/* Navigation Links */}
