@@ -18,8 +18,9 @@ const Profile = () => {
     const { user } = useSelector(store => store.auth);
 
     return (
+        <div>
+        <Navbar />
         <div className='bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen py-10 px-6'>
-            <Navbar />
             <div className='max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg my-5'>
                 <div className='flex justify-between'>
                     <div className='flex items-center gap-4'>
@@ -85,6 +86,7 @@ const Profile = () => {
                 <AppliedJobTable />
             </div>
             <UpdateProfileDialog open={open} setOpen={setOpen} />
+        </div>
         </div>
     );
 };
