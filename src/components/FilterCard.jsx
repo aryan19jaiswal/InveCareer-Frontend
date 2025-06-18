@@ -60,8 +60,7 @@ const FilterCard = () => {
                     ))
                 }
             </RadioGroup>
-            <Button onClick={clearFilterHandler} variant="outline" className="mt-4 border border-black">
-            Clear Filter</Button>
+            <Button onClick={clearFilterHandler} variant="outline" className="mt-4 border border-black">Clear Filter</Button>
         </div>
     )
 }
