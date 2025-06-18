@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { RadioGroup, RadioGroupItem } from './ui/radio-group'
 import { Label } from './ui/label'
+import { Button } from './ui/button'
 import { useDispatch } from 'react-redux'
 import { setSearchedQuery } from '@/redux/jobSlice'
 
@@ -11,7 +12,7 @@ const fitlerData = [
     },
     {
         fitlerType: "Industry",
-        array: ["Frontend Developer", "Backend Developer", "FullStack Developer"]
+        array: ["Frontend Developer", "Backend Developer", "FullStack Developer", "Software Developer"]
     },
     {
         fitlerType: "Salary",
@@ -22,12 +23,19 @@ const fitlerData = [
 const FilterCard = () => {
     const [selectedValue, setSelectedValue] = useState('');
     const dispatch = useDispatch();
+
     const changeHandler = (value) => {
         setSelectedValue(value);
     }
-    useEffect(()=>{
+
+    const clearFilterHandler = () => {
+        setSelectedValue('');
+    }
+
+    useEffect(() => {
         dispatch(setSearchedQuery(selectedValue));
-    },[selectedValue]);
+    }, [selectedValue]);
+
     return (
         <div className='w-full bg-white p-3 rounded-md'>
             <h1 className='font-bold text-lg'>Filter Jobs</h1>
@@ -35,13 +43,13 @@ const FilterCard = () => {
             <RadioGroup value={selectedValue} onValueChange={changeHandler}>
                 {
                     fitlerData.map((data, index) => (
-                        <div>
+                        <div key={index}>
                             <h1 className='font-bold text-lg'>{data.fitlerType}</h1>
                             {
                                 data.array.map((item, idx) => {
                                     const itemId = `id${index}-${idx}`
                                     return (
-                                        <div className='flex items-center space-x-2 my-2'>
+                                        <div className='flex items-center space-x-2 my-2' key={idx}>
                                             <RadioGroupItem value={item} id={itemId} />
                                             <Label htmlFor={itemId}>{item}</Label>
                                         </div>
@@ -52,6 +60,8 @@ const FilterCard = () => {
                     ))
                 }
             </RadioGroup>
+            <Button onClick={clearFilterHandler} variant="outline" className="mt-4 border border-black">
+            Clear Filter</Button>
         </div>
     )
 }
